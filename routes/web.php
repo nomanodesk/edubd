@@ -16,9 +16,10 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect(route('login'));
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\InstitutionController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\InstitutionController::class, 'dashboard'])->name('home');

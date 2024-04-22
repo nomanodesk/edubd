@@ -15,7 +15,7 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="form-group">
-                    <input id="name" type="text" class="form-control form-control-lg" name="name" placeholder="Username" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <input id="name" type="text" class="form-control form-control-lg" name="name" placeholder="Institute Short Name(like DCGPSC)" value="{{ old('name') }}" required autocomplete="name" autofocus>
                     @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

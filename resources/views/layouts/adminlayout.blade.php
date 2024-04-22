@@ -46,37 +46,41 @@
         </div>
         <!-- partial:partials/_navbar.html -->
         @include('admin.common.header')
+        <!-- partial -->
         <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_sidebar.html -->
             @include('admin.common.sidebar')
-            <div class="container-fluid page-body-wrapper">
-                <div class="main-panel">
-                    <div class="content-wrapper">
-                        <!-- Begin Page Content -->
-                        @yield('content')
-                    </div>
-                    <!-- content-wrapper ends -->
-                    @include('admin.common.footer')
-                </div>
-                <!-- main-panel ends -->
+            <!-- partial -->
+            <div class="main-panel">
+
+                @yield('content')
+
+                @include('admin.common.footer')
             </div>
+            <!-- main-panel ends -->
+
             <!-- page-body-wrapper ends -->
         </div>
-        <!-- container-scroller -->
-        <!-- plugins:js -->
-        <script src="{{asset('admin/vendors/js/vendor.bundle.base.js')}}"></script>
-        <!-- endinject -->
-        <!-- Plugin js for this page -->
-        <script src="{{asset('admin/vendors/chart.js/Chart.min.js')}}"></script>
-        <script src="{{asset('admin/js/jquery.cookie.js')}}" type="text/javascript"></script>
-        <!-- End plugin js for this page -->
-        <!-- inject:js -->
-        <script src="{{asset('admin/js/off-canvas.js')}}"></script>
-        <script src="{{asset('admin/js/hoverable-collapse.js')}}"></script>
-        <script src="{{asset('admin/js/misc.js')}}"></script>
-        <!-- endinject -->
-        <!-- Custom js for this page -->
-        <script src="{{asset('admin/js/dashboard.js')}}"></script>
-        <script src="{{asset('admin/js/todolist.js')}}"></script>
-        <!-- End custom js for this page -->
+    </div>
+
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{asset('admin/vendors/js/vendor.bundle.base.js')}}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{asset('admin/vendors/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('admin/js/jquery.cookie.js')}}" type="text/javascript"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{asset('admin/js/off-canvas.js')}}"></script>
+    <script src="{{asset('admin/js/hoverable-collapse.js')}}"></script>
+    <script src="{{asset('admin/js/misc.js')}}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{{asset('admin/js/dashboard.js')}}"></script>
+    <script src="{{asset('admin/js/todolist.js')}}"></script>
+    <!-- End custom js for this page -->
+
 </body>
+
 </html>

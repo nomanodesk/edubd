@@ -10,9 +10,14 @@ class InstitutionController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function dashboard()
+     {
+         return view('admin.home');
+     }
     public function index()
     {
-        return view('admin.home');
+        // return view('admin.home');
     }
 
     /**
