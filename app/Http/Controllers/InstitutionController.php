@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Institution;
+use Auth;
 use Illuminate\Http\Request;
 
 class InstitutionController extends Controller
@@ -12,8 +13,16 @@ class InstitutionController extends Controller
      */
 
      public function dashboard()
-     {
-         return view('admin.home');
+     {  
+        $findinstitue = Institution::where('user_id', Auth::user()->id)->get();
+        // dd($findinstitue);
+        if($findinstitue->isEmpty()){
+            return view('admin.addinstitue');
+        }
+         else {
+            return view('admin.home');
+        }
+       
      }
     public function index()
     {

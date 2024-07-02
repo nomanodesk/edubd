@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Institution;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $findinstitue = Institution::where('user_id', Auth::user()->id)->get();
+        dd($findinstitue);
+        if ($findinstitue) {
+            return view('home');
+        } else {
+            return view('addinstitue');
+        }
     }
 }
