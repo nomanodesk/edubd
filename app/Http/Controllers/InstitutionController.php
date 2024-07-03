@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Institution;
 use Auth;
 use Illuminate\Http\Request;
+use Image;
 
 class InstitutionController extends Controller
 {
@@ -42,8 +43,37 @@ class InstitutionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            $request->validate([
+                
+                'instituteName' => 'required',
+                'contactNo' => ['required', 'string', 'max:11'],
+                'EIIN' => 'required',
+                'address' => 'required',
+                'logo'=>'required',
+              
+            ]);
+      
+            $input = $request->all();
+// dd($input);
+            if ($image = $request->file('logo')) {
+                $path = public_path('institueLogos/');
+                !is_dir($path) &&
+                    mkdir($path, 0777, true);
+    
+                $profileImage = time() . '.' . $request->logo->extension();
+                Image::make($request->file('logo'))
+                    ->resize(200, 200)
+                    ->save($path . $profileImage);
+                $input['logo'] = "$profileImage";
+            } else {
+                unset($input['image']);
+            }
+            Institution::create($input);
+    
+            return redirect()->route('home')->with('success', 'Application has been created successfully.');
     }
+}
 
     /**
      * Display the specified resource.

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\InstitutionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +23,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\InstitutionController::class, 'dashboard'])->name('home');
-Route::resource('institutions', 'InstitutionController');
+
+Route::resource('institutions', InstitutionController::class);

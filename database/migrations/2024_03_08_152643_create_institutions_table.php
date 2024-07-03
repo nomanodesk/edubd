@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('institutions', function (Blueprint $table) {
             $table->id();
-            $table->string('instituteName',200)->unique();
-            $table->string('govtCode',200)->unique();
-            $table->string('appCode',200)->unique();
+            $table->string('instituteName',500)->unique();
+            $table->string('EIIN',200)->unique();
+            $table->string('logo');
             $table->integer('contactNo')->unique();
             $table->string('address',500);
             $table->string('zilla',100);
-            $table->string('dividion',100);
+            $table->string('division',100);
             $table->integer('user_id');
-          
             $table->timestamps();
         });
     }

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('institute_classes', function (Blueprint $table) {
             $table->id();
             $table->string('className',20);
+            $table->string('class_level');
             $table->integer('institution_id');
             $table->timestamps();
         });

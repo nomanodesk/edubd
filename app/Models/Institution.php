@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Institution extends Model
 {
     use HasFactory;
-    protected $fillable = ['instituteName','govtCode','appCode','contactNo','address','zilla','dividion','user_id'];
+    protected $fillable = ['instituteName','EIIN','logo','contactNo','address','user_id'];
     
     public function institute_classes()
     {
