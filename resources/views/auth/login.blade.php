@@ -6,10 +6,9 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                <img src="{{asset('admin/images/logo.svg')}}" alt="logo">
+                <img src="{{asset('admin/images/logo.png')}}" alt="logo">
                 </div>
-                <h4>Hello! let's get started</h4>
-                <h6 class="font-weight-light">Sign in to continue.</h6>
+                <h4>Sign in to continue.</h4>
                 <form id="login-form"class="pt-3" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
                   <div class="form-group">

@@ -24,12 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $findinstitue = Institution::where('user_id', Auth::user()->id)->get();
-        dd($findinstitue);
-        if ($findinstitue) {
-            return view('home');
+        $institute = Institution::where('user_id', Auth::user()->id)->get();
+       
+        if ($institute) {
+            // return view('home');
+            return view('home', compact('institute'));
         } else {
             return view('addinstitue');
+  
+
         }
     }
 }

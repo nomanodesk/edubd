@@ -21,7 +21,13 @@
     <!-- <link rel="stylesheet" href="{{asset('admin/css/font-awesome.min.css')}}"> -->
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('admin/images/favicon.ico')}}" />
-
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("contactForm").submit();
+        }
+    </script>
+    
     @vite(['resources/js/app.js'])
 </head>
 
@@ -63,6 +69,7 @@
         <!-- Custom js for this page -->
         <script src="{{asset('admin/js/dashboard.js')}}"></script>
         <script src="{{asset('admin/js/todolist.js')}}"></script>
+        
         <!-- End custom js for this page -->
 </body>
 

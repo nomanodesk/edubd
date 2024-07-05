@@ -15,13 +15,13 @@ class InstitutionController extends Controller
 
      public function dashboard()
      {  
-        $findinstitue = Institution::where('user_id', Auth::user()->id)->get();
+        $institute = Institution::where('user_id', Auth::user()->id)->get();
         // dd($findinstitue);
-        if($findinstitue->isEmpty()){
+        if($institute->isEmpty()){
             return view('admin.addinstitue');
         }
          else {
-            return view('admin.home');
+            return view('admin.home', compact('institute'));
         }
        
      }

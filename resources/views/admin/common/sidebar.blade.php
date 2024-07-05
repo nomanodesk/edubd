@@ -22,25 +22,25 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="pages/tables/basic-table.html">
+      <a class="nav-link" href="">
         <span class="menu-title">Class Manager</span>
         <i class="mdi mdi-school menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/tables/basic-table.html">
+      <a class="nav-link" href="">
         <span class="menu-title">Student Manager</span>
         <i class="mdi mdi-account-key menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/tables/basic-table.html">
+      <a class="nav-link" href="">
         <span class="menu-title">Notice Board Manager</span>
         <i class="mdi mdi-file-document-box menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/tables/basic-table.html">
+      <a class="nav-link" href="">
         <span class="menu-title">Institue Profile Manager</span>
         <i class="mdi mdi-office menu-icon"></i>
       </a>
