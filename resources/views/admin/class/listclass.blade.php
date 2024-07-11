@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h4> <a class="btn btn-gradient-primary me-2" href="{{ route('institute_classes.create') }}"> Add New Class</a></h4>
+                <h4> <a class="btn btn-gradient-primary btn-sm" href="{{ route('institute_classes.create') }}"> Add New Class</a></h4>
             </div>
 
         </div>
