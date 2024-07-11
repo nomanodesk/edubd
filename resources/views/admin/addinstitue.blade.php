@@ -16,7 +16,7 @@
       </div>
       @endif
 
-      <form class="forms-sample" action="{{route('institutions.store')}}" method="POST" enctype="multipart/form-data">
+      <form class="forms-sample" action="{{route('class_sections.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label for="exampleInputName1">Institue Name</label>

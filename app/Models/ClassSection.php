@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class ClassSection extends Model
 {
     use HasFactory;
-    protected $fillable = ['sectionName','institue_class_id'];
+    protected $fillable = ['sectionName','class_shift','class_version','institue_class_id'];
     public function institute()
     {
         return $this->belongsTo(InstituteClass::class, 'institue_class_id', 'id');

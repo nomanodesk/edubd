@@ -4,6 +4,7 @@
       <a href="#" class="nav-link">
         <div class="nav-profile-image">
           <img src="{{asset('admin/images/faces/face1.jpg')}}" alt="profile">
+          
           <span class="login-status online"></span>
           <!--change to offline or busy as needed-->
         </div>
@@ -22,7 +23,7 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="">
+      <a class="nav-link" href="{{route('institute_classes.index')}}">
         <span class="menu-title">Class Manager</span>
         <i class="mdi mdi-school menu-icon"></i>
       </a>

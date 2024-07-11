@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\InstitutionController;
+use App\Http\Controllers\InstitueClassController;
+use App\Http\Controllers\ClassSectionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +27,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\InstitutionController::class, 'dashboard'])->name('home');
 
 Route::resource('institutions', InstitutionController::class);
+Route::resource('institute_classes', InstitueClassController::class);
+Route::resource('class_sections', ClassSectionController::class);
+Route::post('/getsection', [ClassSectionController::class, 'index'])->name('getsection');
+Route::post('/addsection', [ClassSectionController::class, 'create'])->name('addsection');
