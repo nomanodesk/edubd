@@ -26,12 +26,12 @@
                 <div class="card-body">
                     <h4 class="card-title">Class List</h4>
                     <div class="table-responsive">
-                    <table class="table table-striped table-bordered" id="dataTables-example1">
+                    <table class="table table-striped table-bordered table-sm" id="dataTables-example1">
                             <thead>
-                                <tr>
+                                <tr> <th>#</th>
                                     <th> Name </th>
                                     <th> Level </th>
-                                    <th> Students</th>
+                                    
                                     <th> Action </th>
 
                                 </tr>
@@ -39,9 +39,10 @@
                             <tbody>
                                 @foreach ($instituteclasses as $applinkapp)
                                 <tr>
+                                <td>{{ ++$i }}</td>
                                     <td>{{ $applinkapp->className }}</td>
                                     <td>{{ $applinkapp->class_level }}</td>
-                                    <td></td>
+                                  
                                     <td>
                                         <div class="dropdown dropstart">
                                             <a class="btn btn-info btn-sm, dropdown-toggle dropdown-toggle-split" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,6 +65,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {!! $instituteclasses->links() !!}
                     </div>
                 </div>
             </div>

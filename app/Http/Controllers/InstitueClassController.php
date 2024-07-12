@@ -7,17 +7,18 @@ use App\Models\InstituteClass;
 use Auth;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+
 class InstitueClassController extends Controller
 {
 
     public function index()
     {
-        $instituteclasses = InstituteClass::where('institution_id', Auth::user()->id)->get();
+        $instituteclasses = InstituteClass::where('institution_id', Auth::user()->id)->simplepaginate(100);
         // dd($findinstitue);
         if ($instituteclasses->isEmpty()) {
             return view('admin.class.addclass');
         } else {
-            return view('admin.class.listclass', compact('instituteclasses'));
+            return view('admin.class.listclass', compact('instituteclasses'))->with('i', (request()->input('page', 1) - 1) * 100);
         }
     }
     public function create()
@@ -35,13 +36,13 @@ class InstitueClassController extends Controller
             'class_level' => 'required',
             'institution_id' => 'required',
         ]);
-        $findclasses = InstituteClass::where('institution_id', Auth::user()->id)->where('className',$request->input('className'))->get();
+        $findclasses = InstituteClass::where('institution_id', Auth::user()->id)->where('className', $request->input('className'))->get();
         if ($findclasses->isEmpty()) {
-        $input = $request->all();
-        InstituteClass::create($input);
-        
-        return redirect()->route('institute_classes.index')->with('success', 'Class has been added successfully.');
-        }else if ($findclasses->isNotEmpty()){
+            $input = $request->all();
+            InstituteClass::create($input);
+
+            return redirect()->route('institute_classes.index')->with('success', 'Class has been added successfully.');
+        } else if ($findclasses->isNotEmpty()) {
             return redirect()->route('institute_classes.index')->with('error', 'Class data already exists!!');
         }
     }

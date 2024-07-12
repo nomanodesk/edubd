@@ -21,7 +21,7 @@
     </div>
     @endif
     <div class="row">
-    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">All Student List</h4>
@@ -29,7 +29,7 @@
                         <table class="table table-striped table-bordered" id="dataTables-example1">
                             <thead>
                                 <tr>
-                                <th>S.No</th>
+                                    <th>#</th>
                                     <th> Name </th>
                                     <th> Address </th>
                                     <th> Contact</th>
