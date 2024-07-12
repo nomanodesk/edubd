@@ -16,13 +16,13 @@ class ClassSectionController extends Controller
     {
         // dd($request);
         $classinfo = InstituteClass::where('id', $request->input('institue_class_id'))->get();
-        $classsections = ClassSection::where('institue_class_id', $request->input('institue_class_id'))->get();
+        $classsections = ClassSection::where('institue_class_id', $request->input('institue_class_id'))->simplepaginate(100);
         // dd($findinstitue);
         $class_id = $request->input('institue_class_id');
         if ($classsections->isEmpty()) {
             return view('admin.section.addsection',  compact('classinfo', 'classsections'));
         } else if ($classsections->isNotEmpty()){
-            return view('admin.section.listsection', compact('classinfo', 'classsections'));
+            return view('admin.section.listsection', compact('classinfo', 'classsections'))->with('i', (request()->input('page', 1) - 1) * 100);
         }
     }
     public function create(Request $request): View

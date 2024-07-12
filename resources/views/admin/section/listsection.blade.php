@@ -25,14 +25,15 @@
         </div>
         @endif
         <div class="row">
-            <div class="col-12 grid-margin">
+        <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Section List For Class - {{$data->className}}</h4>
                         <div class="table-responsive">
-                            <table class="table">
+                        <table class="table table-striped table-bordered" id="dataTables-example1">
                                 <thead>
                                     <tr>
+                                    <th>#</th>
                                         <th> Name </th>
                                         <th> Shift </th>
                                         <th> Version</th>
@@ -43,6 +44,7 @@
                                 <tbody>
                                     @foreach ($classsections as $applinkapp)
                                     <tr>
+                                    <td>{{ ++$i }}</td>
                                         <td>{{ $applinkapp->sectionName }}</td>
                                         <td>{{ $applinkapp->class_shift }}</td>
                                         <td>{{ $applinkapp->class_version }}</td>

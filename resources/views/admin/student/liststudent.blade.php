@@ -41,7 +41,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($students as $applinkapp)
-                                <tr>
+                                <tr>  <td>{{ ++$i }}</td>
                                     <td>{{ $applinkapp->studentName }}</td>
                                     <td>{{ $applinkapp->address }}</td>
                                     <td>{{ $applinkapp->contactNo }}</td>
