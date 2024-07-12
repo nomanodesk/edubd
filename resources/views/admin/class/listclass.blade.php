@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container mt-4">
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h4> <a class="btn btn-gradient-primary btn-sm" href="{{ route('institute_classes.create') }}"> Add New Class</a></h4>
             </div>
 
         </div>
-    </div>
+    </div> -->
     @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{ $message }}</p>
@@ -25,6 +25,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Class List</h4>
+                    <a class="btn btn-gradient-primary btn-sm" href="{{ route('institute_classes.create') }}"> Add New Class</a>
                     <div class="table-responsive">
                     <table class="table table-striped table-bordered table-sm" id="dataTables-example1">
                             <thead>

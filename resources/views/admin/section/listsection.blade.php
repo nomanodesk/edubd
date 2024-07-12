@@ -5,7 +5,7 @@
 @endforeach
 <div class="container mt-4">
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <!-- <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <form action="{{route('addsection')}}" method="POST">
                     @csrf
@@ -13,7 +13,7 @@
                     <button class="btn btn-gradient-primary btn-sm">Add Section</button>
                 </form>
             </div>
-        </div>
+        </div> -->
         @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -28,7 +28,12 @@
         <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Section List For Class - {{$data->className}}</h4>
+                        <h4 class="card-title">Section List For Class - {{$data->className}} </h4>
+                        <form action="{{route('addsection')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="institue_class_id" value="{{$data->id}}">
+                    <button class="btn btn-gradient-primary btn-sm">Add Section</button>
+                </form>
                         <div class="table-responsive">
                         <table class="table table-striped table-bordered" id="dataTables-example1">
                                 <thead>
