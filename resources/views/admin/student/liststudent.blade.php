@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h4> <a class="btn btn-gradient-primary btn-sm" href="{{ route('institute_classes.create') }}"> Add New Class</a></h4>
+                <h4> <a class="btn btn-gradient-primary btn-sm" href="{{ route('student_profiles.create') }}"> Add New Student</a></h4>
             </div>
 
         </div>
@@ -24,23 +24,29 @@
     <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Class List</h4>
+                    <h4 class="card-title">All Student List</h4>
                     <div class="table-responsive">
-                    <table class="table table-striped table-bordered" id="dataTables-example1">
+                        <table class="table table-striped table-bordered" id="dataTables-example1">
                             <thead>
                                 <tr>
+                                <th>S.No</th>
                                     <th> Name </th>
-                                    <th> Level </th>
-                                    <th> Students</th>
+                                    <th> Address </th>
+                                    <th> Contact</th>
+                                    <th> UID</th>
+                                    <th> Image</th>
                                     <th> Action </th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($instituteclasses as $applinkapp)
+                                @foreach ($students as $applinkapp)
                                 <tr>
-                                    <td>{{ $applinkapp->className }}</td>
-                                    <td>{{ $applinkapp->class_level }}</td>
+                                    <td>{{ $applinkapp->studentName }}</td>
+                                    <td>{{ $applinkapp->address }}</td>
+                                    <td>{{ $applinkapp->contactNo }}</td>
+                                    <td>{{ $applinkapp->uid }}</td>
+                                    <td> <img src="studentImages/{{ $applinkapp->studentImage }}" height="50" width="50px"></td>
                                     <td></td>
                                     <td>
                                         <div class="dropdown dropstart">
@@ -49,7 +55,6 @@
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <li><a class="dropdown-item btn-gradient-primary btn-sm" href="{{route('institute_classes.edit',$applinkapp->id)}}">Edit Class</a></li>
-                                                <li><a class="dropdown-item btn-gradient-success btn-sm" href="{{route('institute_classes.edit',$applinkapp->id)}}">Add Student</a></li>
                                                 <li>
                                                     <form action="{{route('getsection')}}" method="POST">
                                                         @csrf
@@ -64,6 +69,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {!! $students->links() !!}
                     </div>
                 </div>
             </div>
