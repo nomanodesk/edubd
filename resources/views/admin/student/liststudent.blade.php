@@ -50,7 +50,11 @@
                                     @endif
                                     <td>{{ $applinkapp->address }}</td>
                                     <td>{{ $applinkapp->contactNo }}</td>
+                                    @if($applinkapp->uid !=NULL)
                                     <td>{{ $applinkapp->uid }}</td>
+                                    @else
+                                    <td>N/A</td>
+                                    @endif
                                     <td>
                                         <div class="dropdown dropstart">
                                             <a class="btn btn-info btn-sm, dropdown-toggle dropdown-toggle-split" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
