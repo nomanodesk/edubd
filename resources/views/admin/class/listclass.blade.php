@@ -26,6 +26,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Class List</h4>
                     <a class="btn btn-gradient-primary btn-sm" href="{{ route('institute_classes.create') }}"> Add New Class</a>
+                    
                     <div class="table-responsive">
                     <table class="table table-striped table-bordered table-sm" id="dataTables-example1">
                             <thead>

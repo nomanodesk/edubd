@@ -27,15 +27,14 @@
                     <h4 class="card-title">All Student List</h4>
                     <h4> <a class="btn btn-gradient-primary btn-sm" href="{{ route('student_profiles.create') }}"> Add New Student</a></h4>
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered" id="dataTables-example1">
-                            <thead>
+                        <table class="table table-striped table-bordered " id="dataTables-example1">
+                            <thead class="text-center">
                                 <tr>
                                     <th>#</th>
                                     <th> Name </th>
                                     <th> Address </th>
                                     <th> Contact</th>
                                     <th> UID</th>
-                                    <th> Image</th>
                                     <th> Action </th>
 
                                 </tr>
@@ -43,13 +42,15 @@
                             <tbody>
                                 @foreach ($students as $applinkapp)
                                 <tr>
-                                    <td>{{ ++$i }}</td>
-                                    <td>{{ $applinkapp->studentName }}</td>
+                                    <td class="text-center">{{ ++$i }}</td>
+                                    @if($applinkapp->studentImage !=NULL)
+                                    <td><img src="studentImages/{{ $applinkapp->studentImage }}" height="50" width="50px"> {{ $applinkapp->studentName }}</td>
+                                    @else 
+                                    <td><img src="admin/images/faces-clipart/pic-1.png" height="50" width="50px"> {{ $applinkapp->studentName }}</td>
+                                    @endif
                                     <td>{{ $applinkapp->address }}</td>
                                     <td>{{ $applinkapp->contactNo }}</td>
                                     <td>{{ $applinkapp->uid }}</td>
-                                    <td> <img src="studentImages/{{ $applinkapp->studentImage }}" height="50" width="50px"></td>
-                                    <td></td>
                                     <td>
                                         <div class="dropdown dropstart">
                                             <a class="btn btn-info btn-sm, dropdown-toggle dropdown-toggle-split" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
