@@ -7,6 +7,9 @@ use App\Http\Controllers\InstitutionController;
 use App\Http\Controllers\InstitueClassController;
 use App\Http\Controllers\ClassSectionController;
 use App\Http\Controllers\StudentProfileController;
+use App\Http\Controllers\StudentSchoolDataController;
+use App\Models\StudentSchoolData;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,5 +34,6 @@ Route::resource('institutions', InstitutionController::class);
 Route::resource('institute_classes', InstitueClassController::class);
 Route::resource('class_sections', ClassSectionController::class);
 Route::resource('student_profiles', StudentProfileController::class);
+Route::resource('student_school_data', StudentSchoolDataController::class);
 Route::post('/getsection', [ClassSectionController::class, 'index'])->name('getsection');
 Route::post('/addsection', [ClassSectionController::class, 'create'])->name('addsection');
