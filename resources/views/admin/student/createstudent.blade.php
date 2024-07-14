@@ -27,7 +27,7 @@
           <label for="exampleInputPassword4">Contact No.*</label>
           <input type="number" class="form-control" id="exampleInputPassword4" name='contactNo' required>
         </div>
-        <label for="exampleInputPassword4">operator*</label>
+        <!-- <label for="exampleInputPassword4">operator*</label>
         <div class="col-md-10">
           <div class="form-group row">
             <div class="col-sm-3">
@@ -43,7 +43,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label for="exampleTextarea1">Address*</label>

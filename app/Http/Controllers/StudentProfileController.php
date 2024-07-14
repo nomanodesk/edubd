@@ -9,6 +9,7 @@ use Image;
 use App\Models\Operator;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Validator;
 
 class StudentProfileController extends Controller
 {
@@ -26,7 +27,7 @@ class StudentProfileController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
+    {
         $operators = Operator::all();
         return view('admin.student.createstudent', compact('operators'));
     }
@@ -39,13 +40,25 @@ class StudentProfileController extends Controller
             $request->validate([
 
                 'studentName' => 'required',
-                'contactNo' => ['required', 'string', 'max:11','unique:student_profiles'],
                 'address' => 'required',
-                'operator_id' => 'required',
+                // 'operator_id' => 'required',
             ]);
-
+            $validator = Validator::make($request->all(), [
+                'contactNo' => 'required|validnumber|min:11|unique:student_profiles',
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors(["error" => "Please Enter a valid Robi/Airtel/Banglalink number"])->withInput();
+            }
+            $contact = $request->input('contactNo');
+            $firstThreeDigits = substr($contact, 0, 3);
+            $operator = '';
+            if ($firstThreeDigits == '018') {
+                $operator = "Robi";
+            } else if ($firstThreeDigits == '019') {
+                $operator = "Banglalink";
+            }
             $input = $request->all();
-            // dd($input);
+          
             if ($image = $request->file('studentImage')) {
                 $path = public_path('studentImages/');
                 !is_dir($path) &&
@@ -59,7 +72,18 @@ class StudentProfileController extends Controller
             } else {
                 unset($input['image']);
             }
-            StudentProfile::create($input);
+            // StudentProfile::create($input);
+            $data = new StudentProfile;
+            $data->institution_id = $request->input('institution_id');
+        $data->studentName = $request->input('studentName');
+        $data->address = $request->input('address');
+        $data->contactNo =$request->input('contactNo');
+        $data->operator_id = $operator;
+        if($image!=NULL){
+            $data->studentImage = $profileImage;
+        }
+       
+        $data->save();
 
             return redirect()->route('student_profiles.index')->with('success', 'Student Data added successfully.');
         }
